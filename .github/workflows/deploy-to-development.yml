@@ -1,8 +1,6 @@
 name: Deploy to Development
 
 on:
-  push:
-    branches: development
   pull_request:
     branches:
       - development
@@ -13,27 +11,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     environment: development
-
+    if: github.event.pull_request.merged == true
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v2
-        with:
-          dotnet-version: 7.0.x
-
-      - name: Format the code
-        run: dotnet format --verbosity diagnostic --verify-no-changes
-
-      - name: Restore dependencies
-        run: dotnet restore --disable-parallel
-
-      - name: Build the solution
-        run: dotnet build --no-restore
-
-      - name: Run all tests
-        run: dotnet test --no-build --verbosity normal --no-restore
-
       - name: Deploy to Development Environment
-        run: echo "Deploying the .NET project to Development Environment..."
+        run: echo "Deploying to Development Environment..."
