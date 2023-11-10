@@ -1,0 +1,9 @@
+
+What you should put inside your Domain Layer :
+
+1. Entities/Models:
+
+Entities are like the main characters in your application. 
+They represent real-world objects with a distinct identity. 
+For example, in an e-commerce application, you might have entities like Product, Order, and User. 
+Each entity has only properties. Not methods, the methods are going to be implemented inside the Dto's (Data Transfer Objects) inside of the Application Layer along with the validation methods.

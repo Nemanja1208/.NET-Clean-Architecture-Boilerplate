@@ -1,0 +1,66 @@
+#APPLICATION LAYER
+
+The Application Layer in Clean Architecture serves as the intermediary between the presentation layer (API, user interface) and the Domain Layer (business logic). 
+
+Let's delve into what the Application Layer is all about and how it's used in simpler terms with more details:
+
+1. High-Level Logic:
+
+The Application Layer contains high-level application logic that's not specific to the business domain. 
+It coordinates various actions and operations, often involving multiple domain entities, to fulfill use cases. 
+Think of it as the conductor of an orchestra, ensuring that different parts work together harmoniously.
+
+2. Application Services:
+
+Application services are classes or components responsible for implementing specific use cases or user interactions. 
+These services orchestrate the flow of data and actions within the application. 
+For instance, an OrderService might handle creating and managing orders.
+
+3. Mapping Data:
+
+The Application Layer is responsible for mapping data between the presentation layer and the Domain Layer. 
+It transforms data from DTOs (Data Transfer Objects) used by the presentation layer into domain entities and vice versa. 
+This transformation ensures that data is in the right format for the business logic.
+
+4. Interfaces:
+
+The Application Layer defines interfaces for the services it provides. 
+These interfaces allow the Domain Layer to interact with the Application Layer without knowing the concrete implementation. 
+This separation of concerns makes it easier to switch out or update services.
+
+5. Use Cases:
+
+The Application Layer represents the application's use cases. 
+Use cases are specific tasks or operations that a user or system can perform. 
+For example, in an e-commerce application, use cases could include "place an order," "calculate discounts," or "add a product to the cart."
+
+6. Business Logic Orchestration:
+
+It coordinates the execution of business logic in the Domain Layer. 
+When a use case requires actions on domain entities (e.g., placing an order, calculating discounts), the application service in the Application Layer will call the appropriate methods in the Domain Layer.
+
+7. Independence from Presentation:
+
+The Application Layer is independent of the presentation layer. 
+It doesn't know whether the application is a web API, a mobile app, or a desktop application. 
+This separation ensures that the same application logic can be reused across different interfaces.
+
+8. Testing (Should be written in Tests layer of Clean Architecture !) and Validation:
+
+The Application Layer is a crucial area for writing tests. 
+By isolating business logic from the presentation layer, you can write unit tests for the application services to ensure they correctly handle use cases and interactions. 
+It's also the place to validate input data before passing it to the Domain Layer.
+
+9. Application-Specific Logic:
+
+The Application Layer may contain application-specific logic that doesn't belong in the Domain Layer. 
+This could include workflows, state management, and integrations with external services.
+
+10. Communication with Infrastructure: 
+
+The Application Layer communicates with the Infrastructure Layer when it requires external services, such as sending emails, interacting with third-party APIs, or handling file storage.
+In a directory structure, the Application Layer typically includes application services and mappers.
+
+In summary, the Application Layer in Clean Architecture orchestrates the flow of data and actions in your application, handling use cases and ensuring that the business logic in the Domain Layer is used effectively. 
+It separates high-level logic from the presentation layer, making the application more modular and testable.
+

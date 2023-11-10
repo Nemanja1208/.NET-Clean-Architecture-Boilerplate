@@ -1,0 +1,59 @@
+#DOMAIN LAYER
+
+The Domain Layer in Clean Architecture represents the core of your application. 
+
+It contains the business logic and rules that are unique to your application's domain. 
+
+Let's break down the Domain Layer in simpler terms and provide more detail on what it's all about and how it's used:
+
+1. Business Logic:
+
+The Domain Layer is where you define the rules and operations that are essential to your application's core functionality. 
+These rules are often related to your business domain, such as e-commerce, healthcare, finance, or any other area your application serves.
+
+2. Entities/Models:
+
+Entities are like the main characters in your application. 
+They represent real-world objects with a distinct identity. 
+For example, in an e-commerce application, you might have entities like Product, Order, and User. 
+Each entity has properties and methods that encapsulate its behavior.
+
+3. Value Objects:
+
+Value objects are objects without a distinct identity but are essential to your domain. 
+These can represent concepts like money, addresses, dates, or quantities. 
+For instance, a Price value object might include properties for the amount and currency.
+
+4. Domain Services:
+
+Domain services are classes that provide specific operations or services related to your domain. 
+They don't have identity like entities. 
+For example, you might have a DiscountCalculator domain service that calculates discounts based on certain rules.
+
+5. Rules and Validations:
+
+The Domain Layer enforces rules and constraints. 
+For instance, it ensures that a product's price cannot be negative, or that an order cannot be placed without valid payment information. 
+These rules are checked and enforced within the Domain Layer.
+
+6. Independence:
+
+The Domain Layer should be entirely independent of the outside world, including the database or the user interface. 
+It doesn't depend on Entity Framework, MySQL, or any specific technology. 
+This isolation makes it easier to test and maintain the core logic of your application.
+
+7. How It's Used:
+
+The Domain Layer is used by the Application Layer. 
+Application services in the Application Layer orchestrate operations in the Domain Layer. 
+For example, when a user places an order, the application service would call methods on the Order entity in the Domain Layer to handle the order creation and validation.
+
+8. Testing (Should be written in Tests layer of Clean Architecture !):
+Writing tests for the Domain Layer is crucial. 
+You can write unit tests to ensure that the business logic and rules in this layer work correctly. 
+These tests help maintain the quality and reliability of your application.
+
+In summary, the Domain Layer is where you define and implement the core rules, entities, and value objects specific to your application's domain. 
+It encapsulates the unique behaviour and logic that sets your application apart. 
+It's decoupled from the technical details of data storage or presentation and is focused on maintaining the integrity and consistency of your application's core functionality.
+
